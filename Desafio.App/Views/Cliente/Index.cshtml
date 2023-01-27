@@ -1,0 +1,110 @@
+﻿@{
+    ViewData["Title"] = "Gerenciar clientes";
+}
+@section Styles
+    {
+    <link href="~/lib/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    <link href="~/lib/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" />
+    <link href="~/lib/datatables.net-select-bs5/css/select.bootstrap5.min.css" rel="stylesheet" />
+}
+
+@section Scripts{
+    <script src="~/lib/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/lib/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="~/lib/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/lib/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+    <script src="~/lib/datatables.net-select/js/dataTables.select.min.js"></script>
+    <script src="~/js/cliente.js"></script>
+}
+
+<div class="panel">
+    <div class="panel-heading bg-primary text-center text-white rounded-top p-1">
+        <div class="row">
+            <div class="col-lg-10">
+                <h5 class="panel-title mb-0 p-2 ml-5"><i class="fa fa-user mr-1"></i>GERENCIAR CLIENTES</h5>
+            </div>
+            <div class="col-lg-2">
+                <button id="btn_cliente_novo" class="btn btn-light btn-sm float-right opacity-50 mt-1 w-95 border-0">
+                    <i class="fa fa-plus mr-1"></i>Cadastrar Novo
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body border border-top-0 p-3">
+        <div class="row">
+            <div class="col-lg-12">
+                <table id="table_cliente" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Rua</th>
+                            <th>Num</th>
+                            <th>Bairro</th>
+                            <th>Cidade</th>
+                            <th>UF</th>
+                            <th class="sort-disable"></th>
+                            <th class="sort-disable"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal_ficha" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-light pt-1 pb-1">
+                <i class="fa fa-user mr-1"></i>
+                <h5 class="modal-title" id="lbl_titulo">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body pt-1">
+                <input type="hidden" id="Codigo" />
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label class="form-label text-bold">Nome:</label>
+                        <label class="form-label text-bold text-danger">*</label>
+                        <input type="text" id="Nome" class="form-control form-control-sm rounded-0 text-uppercase" autocomplete="off" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <label class="form-label text-bold">Rua:</label>
+                        <label class="form-label text-bold text-danger">*</label>
+                        <input type="text" id="Rua" class="form-control form-control-sm rounded-0 text-uppercase" autocomplete="off" />
+                    </div>
+                    <div class="col-lg-4">
+                        <label class="form-label text-bold">Número:</label>
+                        <label class="form-label text-bold text-danger">*</label>
+                        <input type="text" id="Numero" class="form-control form-control-sm rounded-0 text-uppercase" autocomplete="off" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <label class="form-label text-bold">Bairro:</label>
+                        <label class="form-label text-bold text-danger">*</label>
+                        <input type="text" id="Bairro" class="form-control form-control-sm rounded-0 text-uppercase" autocomplete="off" />
+                    </div>
+                    <div class="col-lg-6">
+                        <label class="form-label text-bold">Cidade:</label>
+                        <label class="form-label text-bold text-danger">*</label>
+                        <input type="text" id="Cidade" class="form-control form-control-sm rounded-0 text-uppercase" />
+                    </div>
+                    <div class="col-lg-2">
+                        <label class="form-label text-bold">UF:</label>
+                        <label class="form-label text-bold text-danger">*</label>
+                        <input type="text" id="Uf" class="form-control form-control-sm rounded-0 text-uppercase" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer bg-light pt-1 pb-1">
+                <button type="button" id="btn_cliente_confirmar" class="btn btn-success w-25">
+                    <i class="fa fa-check mr-1"></i>Confirmar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
