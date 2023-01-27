@@ -15,8 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Desafio.Dominio\Desafio.Domain.csproj" />
-    <ProjectReference Include="..\Desafio.Persistencia\Desafio.Persistence.csproj" />
+    <ProjectReference Include="..\Desafio.Persistence\Desafio.Persistence.csproj" />
   </ItemGroup>
 
 </Project>
