@@ -2,28 +2,41 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <p>Acessar clientes: <a asp-controller="Cliente" asp-action="Index">Clique aqui</a>.</p>
-</div>
 <div class="row">
     <div class="col-lg-4">
         <b><i class="fa fa-cogs mr-1"></i>CARACTERÍSTICAS GERAIS</b>
         <ul class="mt-2">
-            <li><b>Versão .Net:</b> 6</li>
-            <li class="mt-1"><b>Padrão MVC:</b> 5</li>
-            <li class="mt-1"><b>Banco de dados:</b> PostgreSQL 9.6</li>
-            <li class="mt-1"><b>ORM:</b> EntityFrameworkCore / Dapper</li>
-            <li class="mt-1"><b>URL Api atual:</b> @Desafio.App.Api.Config.UrlApi</li>
-            <li class="mt-1"><b>Autor:</b> Paulo Adriano Alves</li>
+            <li><b class="text-primary">Versão .Net:</b> 6</li>
+            <li class="mt-1"><b class="text-primary">Padrão MVC:</b> 6</li>
+            <li class="mt-1">
+                <b class="text-primary">Banco de dados:</b> PostgreSQL 9.6
+                <ul>
+                    <li class="mt-1">
+                        <b class="text-success ">Script Db:</b> wwwroot/doc/Script.sql
+                    </li>
+                </ul>
+            </li>
+            <li class="mt-1">
+                <b class="text-primary">ORM:</b> EntityFrameworkCore / Dapper
+            </li>
+            <li class="mt-1">
+                <b class="text-primary">URL Api atual:</b> @Desafio.App.Api.Config.UrlApi
+            </li>
+            <li class="mt-1">
+                <b class="text-primary">Autor:</b> Paulo Adriano Alves
+            </li>
+            <li class="mt-1">
+                <b class="text-primary">Acessar clientes:</b> <a asp-controller="Cliente" asp-action="Index">Clique aqui</a>.
+            </li>
         </ul>
     </div>
     <div class="col-lg-4">
         <b><i class="fa fa-desktop mr-1"></i>Front-end </b>
         <ul class="mt-2">
-            <li><b>Projeto:</b> ASP.NET CORE WEB APP</li>
-            <li class="mt-1"><b>Banco de dados:</b> Não realiza conexão direta</li>
+            <li><b class="text-primary">Projeto:</b> ASP.NET CORE WEB APP</li>
+            <li class="mt-1"><b class="text-primary">Banco de dados:</b> Não realiza conexão direta</li>
             <li class="mt-1">
-                <b>Características gerais:</b>
+                <b class="text-primary">Características gerais:</b>
                 <ul>
                     <li class="mt-1">
                         <label class="text-bold text-success">
@@ -40,25 +53,36 @@
                 </ul>
             </li>
             <li class="mt-1">
-                <b>Observações:</b>
+                <b class="text-primary">Observações:</b>
                 <ul>
-                    <li class="mt-1"><b>table: </b>Toda a paginação de dados e feita de forma dinamica, 
-                        carregando apenas as informações que serão exibidas.</li>
-                    <li class="mt-1"><b>Responsividade: </b>Todo o frontend está responsivo.</li>
-                    <li class="mt-1"><b>Validação: </b>Os dados são validados no frontend e no backend.</li>
+                    <li class="mt-1">
+                        <b class="text-success">Table: </b>Toda a paginação de dados e feita de forma dinamica,
+                        carregando apenas as informações que serão exibidas.
+                    </li>
+                    <li class="mt-1">
+                        <b class="text-success">Responsividade: </b>Todo o frontend está responsivo.
+                    </li>
+                    <li class="mt-1">
+                        <b class="text-success">Validação: </b>Os dados são validados no frontend eb backend.
+                    </li>
                 </ul>
             </li>
-
         </ul>
     </div>
     <div class="col-lg-4">
         <b><i class="fa fa-server mr-1"></i>Web Api</b>
         <ul class="mt-2">
-            <li><b>Projeto:</b> ASP.NET CORE WEB API</li>
-            <li><b>Nome da Controlle:</b> Cliente </li>
-            <li><b>Rota: </b> clientes</li>
             <li>
-                <b>Endpoint´s:</b>
+                <b class="text-primary">Projeto:</b> ASP.NET CORE WEB API
+            </li>
+            <li>
+                <b class="text-primary">Nome da Controlle:</b> Cliente
+            </li>
+            <li>
+                <b class="text-primary">Rota: </b> clientes
+            </li>
+            <li>
+                <b class="text-primary">Endpoint´s:</b>
                 <ul>
                     <li class="mt-4">
                         <label class="text-bold text-success">Post:</label>
