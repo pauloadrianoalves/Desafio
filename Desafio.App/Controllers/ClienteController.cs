@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Desafio.App.Controllers
 {
-    [Route("clientes")]
+	[Route("clientes")]
     public class ClienteController : Controller
     {
         private readonly ClienteApi _client;
@@ -27,7 +27,7 @@ namespace Desafio.App.Controllers
                 if (!string.IsNullOrEmpty(validar)) return Json(new { status = false, msg = validar });
                 var status = await _client.Gravar(cliente);
                 return status
-                    ? Json(new { status = true })
+                    ? Json(new { status })
                     : Json(new { status = false, msg = "Não foi possível salvar o cliente. Tente novamente em instantes." });
             }
             catch (Exception ex)
@@ -59,8 +59,8 @@ namespace Desafio.App.Controllers
             {
                 var status = await _client.Excluir(id);
                 return status
-                    ? Json(new { status = true })
-                    : Json(new { status = false, msg = "Cliente não encontrado." });
+                    ? Json(new { status })
+                    : Json(new { status, msg = "Cliente não encontrado." });
             }
             catch (Exception ex)
             {

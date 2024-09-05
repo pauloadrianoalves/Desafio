@@ -1,5 +1,4 @@
 ﻿using Desafio.App.Models;
-using System.Net;
 using System.Text.Json;
 
 namespace Desafio.App.Api
@@ -25,7 +24,7 @@ namespace Desafio.App.Api
         /// </summary>
         /// <param name="codigo">Código cliente</param>
         /// <returns>Models.Cliente</returns>
-        Task<Models.Cliente> Ficha(int codigo);
+        Task<Models.Cliente?> Ficha(int codigo);
 
         /// <summary>
         /// Retorna lista de clientes paginada
@@ -36,7 +35,7 @@ namespace Desafio.App.Api
         /// <param name="ordem">Tipo de ordenação</param>
         /// <param name="filtro">Filtragem por nome</param>
         /// <returns></returns>
-        Task<ClienteListar> CarregarLista(int nPaginas, int tPagina, string oColuna, string ordem, string filtro = "");
+        Task<ClienteListar?> CarregarLista(int nPaginas, int tPagina, string? oColuna, string? ordem, string? filtro = "");
 
         /// <summary>
         /// Valida se os campos foram preenchidos
@@ -110,7 +109,7 @@ namespace Desafio.App.Api
             }
         }
 
-        public async Task<ClienteListar?> CarregarLista(int nPaginas, int tPagina, string oColuna, string ordem, string filtro = "")
+        public async Task<ClienteListar?> CarregarLista(int nPaginas, int tPagina, string? oColuna, string? ordem, string? filtro = "")
         {
             try
             {

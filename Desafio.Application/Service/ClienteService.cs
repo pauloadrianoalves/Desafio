@@ -61,7 +61,7 @@ namespace Desafio.Application.Service
                 if (await _cliente.Existe(cliente.Codigo))
                 {
                     var ficha = await _cliente.Registro(cliente.Codigo);
-                    map.DataCadastro = ficha.DataCadastro;
+                    map.DataCadastro = ficha?.DataCadastro;
                     _repository.Update(map);
                 }
                 else

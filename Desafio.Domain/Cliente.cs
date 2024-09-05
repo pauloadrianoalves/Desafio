@@ -11,25 +11,25 @@ namespace Desafio.Domain
         public int Codigo { get; set; }
 
         [Column("nome")]
-        public string Nome { get; set; }
+        public string? Nome { get; set; }
 
         [Column("rua")]
-        public string Rua { get; set; }
+        public string? Rua { get; set; }
 
         [Column("numero")]
-        public string Numero { get; set; }
+        public string? Numero { get; set; }
 
         [Column("bairro")]
-        public string Bairro { get; set; }
+        public string? Bairro { get; set; }
 
         [Column("cidade")]
-        public string Cidade { get; set; }
+        public string? Cidade { get; set; }
 
         [Column("uf")]
-        public string Uf { get; set; }
+        public string? Uf { get; set; }
 
         [Column("dtcad")]
-        public DateTime DataCadastro
+        public DateTime? DataCadastro
         {
             get { return DateTime.Now;}
             set { }

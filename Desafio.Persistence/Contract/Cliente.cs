@@ -12,7 +12,7 @@ namespace Desafio.Persistence.Contract
         /// </summary>
         /// <param name="codigo">Código do cliente</param>
         /// <returns>Domain.Cliente</returns>
-        Task<Domain.Cliente> Registro(int codigo);
+        Task<Domain.Cliente?> Registro(int codigo);
 
         /// <summary>
         /// Retorna lista paginada
@@ -23,14 +23,14 @@ namespace Desafio.Persistence.Contract
         /// <param name="ordem">Tipo de ordenação</param>
         /// <param name="filtro">Filtrar por nome</param>
         /// <returns>List<Cliente></returns>
-        Task<List<Cliente>> Listar(int nPaginas, int tPagina, string oColuna, string ordem, string? filtro);
+        Task<List<Cliente>?> Listar(int nPaginas, int tPagina, string oColuna, string ordem, string? filtro);
 
         /// <summary>
         /// Retorna quantidade de registros encontrados
         /// </summary>
         /// <param name="filtro">Filtrar por nome</param>
         /// <returns>int</returns>
-        Task<int> ListarQuantidade(string filtro);
+        Task<int> ListarQuantidade(string? filtro);
 
         /// <summary>
         /// Verifica se um cliente já existe
@@ -57,7 +57,7 @@ namespace Desafio.Persistence.Contract
             {
                 var sql = $"select * from tb_cliente where codigo = '{codigo}'";
                 var rsp = await _conn.QueryAsync<Domain.Cliente>(sql);
-                return rsp != null ? rsp.FirstOrDefault() : new Cliente();
+                return rsp != null ? rsp.FirstOrDefault() : null;
             }
             catch (Exception ex)
             {
@@ -65,14 +65,14 @@ namespace Desafio.Persistence.Contract
             }
         }
 
-        public async Task<List<Cliente>> Listar(int nPaginas, int tPagina, string oColuna, string ordem, string? filtro)
+        public async Task<List<Cliente>?> Listar(int nPaginas, int tPagina, string oColuna, string ordem, string? filtro)
         {
             try
             {
                 filtro = !string.IsNullOrEmpty(filtro) ? $"where upper(nome) like '%{filtro.ToUpper()}%'" : "";
                 var sql = $"select * from tb_cliente {filtro} order by {oColuna} {ordem} offset {nPaginas} limit {tPagina}";
                 var rsp = await _conn.QueryAsync<Domain.Cliente>(sql);
-                return rsp != null ? rsp.ToList() : new List<Cliente>();
+                return rsp != null ? rsp.ToList() : null;
             }
             catch (Exception ex)
             {
@@ -80,11 +80,11 @@ namespace Desafio.Persistence.Contract
             }
         }
 
-        public async Task<int> ListarQuantidade(string filtro)
+        public async Task<int> ListarQuantidade(string? filtro)
         {
             try
             {
-                filtro = !string.IsNullOrEmpty(filtro) ? $"where upper(nome) like '%{filtro.ToUpper()}%'" : "";
+                filtro = !string.IsNullOrEmpty(filtro) ? $"where upper(nome) like '%{filtro?.ToUpper()}%'" : "";
                 var sql = $"select count(*) from tb_cliente {filtro}";
                 var rsp = await _conn.QueryAsync<int>(sql);
                 return rsp != null ? rsp.First() : 0;
